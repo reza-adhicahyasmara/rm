@@ -50,9 +50,8 @@ class Rekam_medis extends CI_Controller {
         }else{
             $dokumen = "";  
         }
-
-        echo 1;                 
-        $data  = array( 
+                
+        $data1  = array( 
             'no_remed'              => $no_remed,
             'id_user'               => $id_user,
             'id_poli'               => $id_poli,
@@ -62,7 +61,17 @@ class Rekam_medis extends CI_Controller {
             'diagnosis'             => $diagnosis,
             'dokumen'               => $dokumen,
         );
-        $this->Mod_rekam_medis->insert_riwayat_rekam_medis($data); 
+        $this->Mod_rekam_medis->insert_riwayat_rekam_medis($data1); 
+
+        $data2  = array( 
+            'no_remed'          => $no_remed,
+            'tgl_akhir'         => $tanggal_pemeriksaan,
+        );
+    
+        $this->Mod_rekam_medis->update_rekam_medis($no_remed, $data2);     
+
+        echo 1; 
+
     }
 
 

@@ -85,7 +85,8 @@ CREATE TABLE `pasien` (
 insert  into `pasien`(`nik`,`nama`,`JK`,`tgl_lahir`,`alamat`,`pekerjaan`) values 
 (3102937109090999,'Sadam','L','2023-08-03','Bogor','Polisi'),
 (3102937109091092,'Irfan M','L','2023-08-06','Kuningan','Supir'),
-(3102937109092131,'Adam Nurfauzan Subiyanto','L','2000-10-27','Bogor','Mahasiswa');
+(3102937109092131,'Adam Nurfauzan Subiyanto','L','2000-10-27','Bogor','Mahasiswa'),
+(3208888888880003,'Reza Cahyono','L','1945-08-17','Sawahwaru Kuningan','Professor');
 
 /*Table structure for table `poli` */
 
@@ -134,15 +135,16 @@ CREATE TABLE `rekam_medis` (
   `status` int(10) NOT NULL,
   PRIMARY KEY (`no_remed`),
   UNIQUE KEY `nik` (`nik`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `rekam_medis` */
 
 insert  into `rekam_medis`(`no_remed`,`id_remed`,`nik`,`tgl_awal`,`tgl_akhir`,`diagnosa`,`dokumen`,`umur_berkas`,`status`) values 
 (1,0,2019008023812380,'2023-06-08','2023-07-12','','',0,1),
 (5,0,3102937109090999,'2023-06-19','2023-08-03','Batuk','',0,1),
-(6,0,3102937109092131,'2023-07-12','2023-10-30','e','',0,1),
-(7,0,3102937109091092,'2023-08-03','2023-10-30','sa',NULL,0,1);
+(6,0,3102937109092131,'2017-07-12','2017-10-30','e','',0,1),
+(7,0,3102937109091092,'2023-08-03','2023-10-30','sa',NULL,0,1),
+(8,0,3208888888880003,'2023-10-02','2023-10-16','',NULL,2023,0);
 
 /*Table structure for table `riwayat_rm` */
 
@@ -160,15 +162,18 @@ CREATE TABLE `riwayat_rm` (
   `dokumen` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_riwayat_rm`),
   KEY `id_riwayat_rm` (`id_riwayat_rm`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `riwayat_rm` */
 
 insert  into `riwayat_rm`(`id_riwayat_rm`,`no_remed`,`id_user`,`id_poli`,`tanggal_pemeriksaan`,`tanggal_masuk`,`tanggal_keluar`,`diagnosis`,`dokumen`) values 
-(2,6,15,3,'2023-10-31','2023-11-08','2023-11-08','Checkup','Test_Aja.pdf'),
-(3,6,15,3,'2023-10-31','2023-11-09','2023-11-09','Checkup','Test_Aja.pdf'),
-(4,6,15,3,'2023-11-09','2023-11-11','2023-11-11','Checkup','Test_Aja.pdf'),
-(7,6,16,17,'2023-11-01','2023-11-01','2023-11-01','Panas Dalam ','INI_TEH_DEMO_BERKAS_PDF.pdf');
+(2,6,15,3,'2023-10-31','2017-11-08','2017-11-08','Checkup','Test_Aja.pdf'),
+(3,6,15,3,'2023-10-31','2017-11-09','2017-11-09','Checkup','Test_Aja.pdf'),
+(4,6,15,3,'2023-11-09','2017-11-11','2017-11-11','Checkup','Test_Aja.pdf'),
+(7,6,16,17,'2023-11-01','2017-11-01','2017-11-01','Panas Dalam ','INI_TEH_DEMO_BERKAS_PDF.pdf'),
+(8,8,16,17,'2023-10-02','2023-10-02','2023-10-02','Periksa kesehatan',''),
+(9,8,16,17,'2023-10-04','2023-10-04','2023-10-04','Chekup Kesehatan',''),
+(10,8,16,17,'2023-10-16','2023-10-16','2023-10-16','Checkup','Test_Aja.pdf');
 
 /*Table structure for table `tbl_akses_menu` */
 

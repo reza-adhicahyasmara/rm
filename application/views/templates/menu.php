@@ -153,7 +153,8 @@ $apl = $this->db->get("aplikasi")->row();
 
           <!-- MENU BY SESSION LOGIN - by exitus -->
           <?php if($this->session->userdata['id_level'] == "1") { ?>
-              <li class="nav-item"><a href="<?=base_url('admin/laporan')?>" class="nav-link"><i class="nav-icon fas fa-file text-bold"></i><p>Laporan</p></a></li>
+              <li class="nav-item"><a href="<?=base_url('admin/laporan/rekam_medis')?>" class="nav-link"><i class="nav-icon fas fa-file text-bold"></i><p>Laporan Rekam Medis</p></a></li>
+              <li class="nav-item"><a href="<?=base_url('admin/laporan/riwayat')?>" class="nav-link"><i class="nav-icon fas fa-file text-bold"></i><p>Laporan Riwayat RM</p></a></li>
           <?php } ?>
           <?php if($this->session->userdata['id_level'] == "6") { ?>
               <li class="nav-item"><a href="<?=base_url('dokter/rekam_medis')?>" class="nav-link"><i class="nav-icon fas fa-heartbeat text-bold"></i><p>Rekam Medis</p></a></li>

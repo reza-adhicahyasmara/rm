@@ -39,4 +39,9 @@ class Mod_rekam_medis extends CI_Model {
         $this->db->insert('riwayat_rm', $data);
     }
 
+    function update_rekam_medis($no_remed, $data){
+        $this->db->where('no_remed', $no_remed);
+        $this->db->update('rekam_medis', $data);
+    }
+
 }

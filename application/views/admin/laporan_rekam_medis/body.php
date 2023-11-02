@@ -9,16 +9,16 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                                 </div>
-                                <select class="form-control no_remed" name="no_remed" id="no_remed">
-                                    <option value="">No. RM</option>
-                                    <?php foreach($data_rm as $row){ ?>
-                                        <option value="<?php echo $row->no_remed; ?>"><?php echo $row->no_remed; ?></option>
-                                    <?php } ?> 
+                                <select class="form-control status" name="status" id="status">
+                                    <option value="">Pilih Status</option>
+                                    <option value="Semua Status">Semua Status</option>
+                                    <option value="Aktif">Aktif</option>
+                                    <option value="Tidak Aktif">Tidak Aktif</option>
+                                    
                                 </select>
-                                <button type="button" target="_blank" class="btn btn-warning" onclick="window.print();"><span class="bx bx-fw bx-printer"></span> Print</button>
+                                <button type="button" target="_blank" class="btn btn-warning" onclick="window.print()">Print</button>
                             </div>
                         </div>
-                       
                     </div>
                 </div>
             </div>
@@ -45,8 +45,8 @@
 
 <!-----------------------FUNGSI----------------------->
 <script type="text/javascript">
-    var url_laporan =  "<?php echo base_url('admin/laporan'); ?>";
-    var url = url_laporan ;
+    var url_laporan_rekam_medis =  "<?php echo base_url('admin/laporan/rekam_medis'); ?>";
+    var url = url_laporan_rekam_medis ;
     $('ul.nav-sidebar a').filter(function() {
         return this.href == url;
     }).addClass('active ');
@@ -57,17 +57,17 @@
 
 <!-----------------------LOAD HALAMAAN----------------------->
 <script type="text/javascript">
-    $('.no_remed').select2({
+    $('.status').select2({
         theme: 'bootstrap4',
     });
 
-    $("#no_remed").change(function() {
-        var no_remed = $(this).val();
+    $("#status").change(function() {
+        var status = $(this).val();
 
         $.ajax({
-            url : '<?php echo base_url('admin/laporan/load_data_laporan'); ?>',
+            url : '<?php echo base_url('admin/laporan/load_data_laporan_rekam_medis'); ?>',
             method: 'POST',
-            data: {no_remed:no_remed},
+            data: {status:status},
             async : false,
             beforeSend : function(){
                 $('#content_rekam_medis').html('<div style="text-align:center"><i class="fa fa-refresh fa-3x fa-spin" style="margin-top: 30px; margin-bottom: 30px;" aria-hidden="true"></i></div>');

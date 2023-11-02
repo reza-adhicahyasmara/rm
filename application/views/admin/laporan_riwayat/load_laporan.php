@@ -5,7 +5,7 @@
     </br>
     <span>(0232) 8905556</span>
     <hr>
-    <h5><strong>Laporan Rekam Medis</strong></h5>     
+    <h5><strong>Laporan Riwayat Rekam Medis</strong></h5>     
     </br>
 </div>
 </br>
@@ -47,6 +47,23 @@
             <td id="" style="text-align: left; vertical-align: middle; ">No. Rekam Medis</td>
             <td id="" style="text-align: center; vertical-align: middle; width:3%">:</td>
             <td id="" style="text-align: left; vertical-align: middle; "><?php echo $pasien['no_remed'];?></td>
+        </tr>
+        <tr>
+            <td id="" style="text-align: left; vertical-align: middle; ">Status</td>
+            <td id="" style="text-align: center; vertical-align: middle; width:3%">:</td>
+            <td id="" style="text-align: left; vertical-align: middle; ">
+                <?php
+                    $currentDate = date('Y-m-d');
+                    $fiveYearsAgo = date('Y-m-d', strtotime('-5 years'));
+                    $tanggalTerakhir = $pasien['tgl_akhir'];
+
+                    if ($tanggalTerakhir >= $fiveYearsAgo && $tanggalTerakhir <= $currentDate) {
+                        echo '<span class="text-success">Aktif</span>';
+                    } else {
+                        echo '<span class="text-danger">Tidak Aktif</span>';
+                    }
+                ?>
+            </td>
         </tr>
     </thead>
 </table>

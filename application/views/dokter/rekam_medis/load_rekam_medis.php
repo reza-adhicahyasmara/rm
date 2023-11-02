@@ -22,6 +22,7 @@
                 <hr>
                 <strong><i class="far fa-building mr-1"></i> Pekerjaan</strong>
                 <p class="text-muted"><?php echo $pasien['pekerjaan'];?></p>
+                <hr>
             </div>
         </div>
     </div>
@@ -132,6 +133,40 @@
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="col-md-3">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Data Rekam Medis</h3>
+            </div>
+            <div class="card-body">
+                <strong><i class="far fa-bookmark mr-1"></i> No. Rekam Medis</strong>
+                <p class="text-muted"><?php echo $pasien['no_remed'];?></p>
+                <hr>
+                <strong><i class="far fa-calendar mr-1"></i> Kunjungan Pertama</strong>
+                <p class="text-muted"><?php echo $pasien['tgl_awal'];?></p>
+                <hr>
+                <strong><i class="far fa-calendar mr-1"></i> Kunjungan Terkakhir</strong>
+                <p class="text-muted"><?php echo $pasien['tgl_akhir'];?></p>
+                <hr>
+                <strong><i class="far fa-star mr-1"></i> Status</strong>
+                <p class="text-muted">
+                    <?php
+                        $currentDate = date('Y-m-d');
+                        $fiveYearsAgo = date('Y-m-d', strtotime('-5 years'));
+                        $tanggalTerakhir = $pasien['tgl_akhir'];
+
+                        if ($tanggalTerakhir >= $fiveYearsAgo && $tanggalTerakhir <= $currentDate) {
+                            echo '<span class="text-success">Aktif</span>';
+                        } else {
+                            echo '<span class="text-danger">Tidak Aktif</span>';
+                        }
+                    ?>
+                </p>
             </div>
         </div>
     </div>
